@@ -28,26 +28,36 @@ function Home() {
   return (
     <div className="grid grid-cols-2">
       <Header className="col-span-2 background-image" />
-      {cryptoData.slice(0, displayCount).map((crypto, index) => (
-        <div
-          className="crypto-card"
-          key={uuidv4()}
-          style={{
-            border: 'none',
-            color: 'white',
-            height: '30vh',
-            backgroundColor: index % 2 === 0 ? '#202123' : '#444654',
-          }}
-        >
-          <h3>{crypto.pair}</h3>
-          <p>
-            price:&nbsp;
-            {parseFloat(crypto.price).toFixed(2)}
-          </p>
-        </div>
-      ))}
+      {cryptoData.slice(0, displayCount).map((crypto, index) => {
+        const row = Math.floor(index / 2); // Calculate the row index
+        const col = index % 2; // Calculate the column index
+
+        // Determine the background color based on row and column
+        const backgroundColor = (row % 2 === 0 && col === 0) || (row % 2 !== 0 && col !== 0)
+          ? '#202123'
+          : '#444654';
+
+        return (
+          <div
+            className="crypto-card p-3"
+            key={uuidv4()}
+            style={{
+              border: 'none',
+              color: 'white',
+              height: '30vh',
+              backgroundColor,
+            }}
+          >
+            <h2>{crypto.pair}</h2>
+            <p>
+              price:&nbsp;
+              {parseFloat(crypto.price).toFixed(2)}
+            </p>
+          </div>
+        );
+      })}
       {displayCount < cryptoData.length && (
-        <button type="button" onClick={handleViewMoreClick} className="view-more-button">
+        <button type="button" onClick={handleViewMoreClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 col-span-2">
           View More
         </button>
       )}
