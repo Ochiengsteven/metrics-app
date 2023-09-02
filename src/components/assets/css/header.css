@@ -1,0 +1,9 @@
+.background-image {
+  background-image: url("../images/bg-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 30vh;
+  color: white;
+  padding: 1rem 0 0 2rem;
+}
