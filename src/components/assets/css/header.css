@@ -24,3 +24,10 @@
   width: 60%;
   border-radius: 8px;
 }
+
+.back4 {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px;
+  width: 90%;
+  border-radius: 8px;
+}

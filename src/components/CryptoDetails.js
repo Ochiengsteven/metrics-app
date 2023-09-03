@@ -17,7 +17,7 @@ function CryptoDetails() {
             <Link to="/" className="text-white hover:text-blue-600 text-2xl font-semibold">
               &lt; Back
             </Link>
-            <h1 className="text-3xl mt-4 mb-6">
+            <h1 className="text-3xl mt-4 mb-6 back4">
               Crypto Details for
               <br />
               {crypto.pair}
