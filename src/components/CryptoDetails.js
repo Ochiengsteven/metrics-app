@@ -1,21 +1,37 @@
-// import React from 'react';
-// import { Link, useParams } from 'react-router-dom';
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectAllAssets } from '../redux/actions/actionsSlice';
 
-// function CountryDetails({ countries }) {
-//   const { countryId } = useParams();
-//   const country = countries.find((c) => c.id === countryId);
+function CryptoDetails() {
+  const { uuid } = useParams();
+  const cryptoData = useSelector(selectAllAssets);
 
-//   if (!country) {
-//     return <div>Country not found.</div>;
-//   }
+  const crypto = cryptoData.find((crypto) => crypto.uuid === uuid);
 
-//   return (
-//     <div>
-//       <h2>{country.name}</h2>
-//       {/* Display country details */}
-//       <Link to="/">Back to Homepage</Link>
-//     </div>
-//   );
-// }
+  return (
+    <div style={{ width: '100vw', height: '100vh', background: '#fff' }}>
+      {crypto && (
+        <div className="bg-white">
+          <Link to="/" className="text-blue-500 hover:text-blue-600">
+            &lt; Back to home
+          </Link>
+          <h1>
+            Crypto Details for
+            {crypto.pair}
+          </h1>
+          <p>
+            Exchange:
+            {crypto.exchange}
+          </p>
+          <p>
+            Price:
+            {parseFloat(crypto.price).toFixed(2)}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
 
-// export default CountryDetails;
+export default CryptoDetails;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { fetchAssets, selectAllAssets, selectAssetsStatus } from '../redux/actions/actionsSlice';
 import Header from './Header';
@@ -38,7 +38,8 @@ function Home() {
           : '#444654';
 
         return (
-          <div
+          <Link
+            to={`/crypto/${uuidv4()}`}
             className="crypto-card p-3"
             key={uuidv4()}
             style={{
@@ -54,7 +55,7 @@ function Home() {
               price:&nbsp;
               {parseFloat(crypto.price).toFixed(2)}
             </p>
-          </div>
+          </Link>
         );
       })}
       {displayCount < cryptoData.length && (
