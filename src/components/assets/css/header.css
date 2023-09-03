@@ -7,3 +7,13 @@
   color: white;
   padding: 1rem 0 0 2rem;
 }
+
+.details-bg {
+  background-image: url("../images/bg-details.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 30vh;
+  color: white;
+  padding: 1rem 0 0 2rem;
+}

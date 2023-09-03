@@ -50,11 +50,11 @@ function Home() {
             }}
           >
             <h2 className="text-3xl font-extrabold pb-4">{crypto.pair}</h2>
-            <h1 className="text-xl semi-extrabold">{crypto.exchange}</h1>
-            <p>
-              price:&nbsp;
-              {parseFloat(crypto.price).toFixed(2)}
-            </p>
+            <h1 className="text-xl semi-extrabold">
+              Exchange:&nbsp;
+              <br />
+              {crypto.exchange}
+            </h1>
           </Link>
         );
       })}
