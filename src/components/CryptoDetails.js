@@ -10,9 +10,9 @@ function CryptoDetails() {
   const crypto = cryptoData.find((crypto) => crypto.uuid === uuid);
 
   return (
-    <div className="min-h-screen" style={{ width: '100vw', background: '#fff' }}>
+    <div className="min-h-screen" style={{ width: '100vw', background: '#202123' }}>
       {crypto && (
-        <div className="bg-white rounded-lg shadow-lg">
+        <div className="bg-black shadow-lg">
           <div className="details-bg">
             <Link to="/" className="text-white hover:text-blue-600 text-2xl font-semibold">
               &lt; Back
@@ -23,16 +23,16 @@ function CryptoDetails() {
               {crypto.pair}
             </h1>
           </div>
-          <div className="grid grid-rows-3 gap-4 p-4">
-            <div className="row-span-1 text-3xl font-semibold pb-4">
+          <div className="grid grid-rows-3 bg-black text-white">
+            <div style={{ background: '#202123', height: '12vh', textAlign: 'center' }} className="row-span-1 text-2xl font-bold p-4 rounded-t-lg">
               Exchange:&nbsp;
               {crypto.exchange}
             </div>
-            <div className="row-span-1 text-2xl pb-3">
+            <div style={{ background: '#444654' }} className="row-span-1 text-2xl p-4">
               Price:&nbsp;&nbsp;
               {parseFloat(crypto.price).toFixed(2)}
             </div>
-            <div className="row-span-1 text-2xl pb-3">
+            <div style={{ background: '#202123', textAlign: 'center' }} className="row-span-1 text-2xl p-4">
               Volume:&nbsp;&nbsp;
               {crypto.volume}
             </div>
