@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -13,6 +13,9 @@ function Home() {
   // State variables for card display
   const [displayCount, setDisplayCount] = useState(6); // Initial display count
   const increment = 4; // Number of cards to add on "View More" click
+  const [filteredCryptoData, setFilteredCryptoData] = useState(cryptoData);
+  // eslint-disable-next-line no-unused-vars
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     if (assetsStatus === 'idle') {
@@ -25,10 +28,24 @@ function Home() {
     setDisplayCount(displayCount + increment);
   };
 
+  // Function to filter crypto cards based on search query
+  const filterCryptoData = useCallback(
+    (query) => {
+      // eslint-disable-next-line max-len
+      const filteredData = cryptoData.filter((crypto) => crypto.pair.toLowerCase().includes(query.toLowerCase()));
+      setFilteredCryptoData(filteredData);
+      setSearchQuery(query);
+    },
+    [cryptoData],
+  );
+
   return (
     <div className="grid grid-cols-2">
-      <Header className="col-span-2 background-image" />
-      {cryptoData.slice(0, displayCount).map((crypto, index) => {
+      <Header
+        className="col-span-2 background-image"
+        onSearch={filterCryptoData}
+      />
+      {filteredCryptoData.slice(0, displayCount).map((crypto, index) => {
         const row = Math.floor(index / 2); // Calculate the row index
         const col = index % 2; // Calculate the column index
 
@@ -58,8 +75,12 @@ function Home() {
           </Link>
         );
       })}
-      {displayCount < cryptoData.length && (
-        <button type="button" onClick={handleViewMoreClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 col-span-2">
+      {displayCount < filteredCryptoData.length && (
+        <button
+          type="button"
+          onClick={handleViewMoreClick}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 col-span-2"
+        >
           View More
         </button>
       )}
