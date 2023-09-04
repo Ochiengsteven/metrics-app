@@ -48,7 +48,8 @@ function Home() {
               backgroundColor,
             }}
           >
-            <h2>{crypto.pair}</h2>
+            <h2 className="text-3xl font-extrabold pb-4">{crypto.pair}</h2>
+            <h1 className="text-xl semi-extrabold">{crypto.exchange}</h1>
             <p>
               price:&nbsp;
               {parseFloat(crypto.price).toFixed(2)}
