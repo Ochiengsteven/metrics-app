@@ -32,7 +32,7 @@ function CryptoDetails() {
               Price:&nbsp;&nbsp;
               {parseFloat(crypto.price).toFixed(2)}
             </div>
-            <div style={{ background: '#202123', textAlign: 'center' }} className="row-span-1 text-2xl p-4">
+            <div style={{ background: '#202123' }} className="row-span-1 text-2xl p-4">
               Volume:&nbsp;&nbsp;
               {crypto.volume}
             </div>
