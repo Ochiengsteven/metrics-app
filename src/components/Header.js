@@ -6,7 +6,7 @@ export default function Header({ className }) {
   return (
     <div className={className}>
       <h1 className="text-5xl font-extrabold w-full pb-4">CryptoView</h1>
-      <h3 className="text-3xl font-semibold w-full">
+      <h3 className="text-3xl font-semibold w-full back3">
         Research the&nbsp;
         <br />
         crypto
