@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -43,6 +42,7 @@ export default function Home() {
 
   let content;
   if (assetsStatus === 'loading') {
+    // Loading animation
     content = (
       <div className="honeycomb">
         <div />
@@ -61,7 +61,7 @@ export default function Home() {
           const row = Math.floor(index / 2); // Calculate the row index
           const col = index % 2; // Calculate the column index
 
-          // Determine the background color based on row and column
+          // Background color based on row and column
           const backgroundColor = (row % 2 === 0 && col === 0) || (row % 2 !== 0 && col !== 0)
             ? '#202123'
             : '#444654';
@@ -70,9 +70,9 @@ export default function Home() {
 
           return (
             <Link
-              to={`/crypto/${crypto.id}`} // Use a unique identifier as the path
+              to={`/crypto/${crypto.id}`} // Unique identifier as the path
               className="crypto-card p-3"
-              key={uniqueKey} // Use a unique identifier as the key
+              key={uniqueKey} // Unique identifier as the key
               style={{
                 border: 'none',
                 color: 'white',
