@@ -1,7 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faMicrophone, faGear } from '@fortawesome/free-solid-svg-icons';
 import { selectAllAssets } from '../redux/actions/actionsSlice';
+import './assets/css/details.css';
 
 function CryptoDetails() {
   const { uuid } = useParams();
@@ -14,8 +18,13 @@ function CryptoDetails() {
       {crypto && (
         <div className="bg-black shadow-lg">
           <div className="details-bg">
-            <Link to="/" className="text-white hover:text-blue-600 text-2xl font-semibold">
-              &lt; Back
+            <Link to="/" className="text-white text-xl font-semibold flex justify-between showbg">
+              <FontAwesomeIcon icon={faAngleLeft} />
+              <p className="inline-block ml-2">Details</p>
+              <div className="inline-block ml-2 pr-3">
+                <FontAwesomeIcon className="pr-3" icon={faMicrophone} />
+                <FontAwesomeIcon icon={faGear} />
+              </div>
             </Link>
             <h1 className="text-3xl mt-4 mb-6 back4">
               Crypto Details for

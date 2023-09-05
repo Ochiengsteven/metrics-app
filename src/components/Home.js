@@ -1,7 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { fetchAssets, selectAllAssets, selectAssetsStatus } from '../redux/actions/actionsSlice';
 import Header from './Header';
 import './assets/css/load.css';
@@ -77,6 +80,9 @@ export default function Home() {
                 backgroundColor,
               }}
             >
+              <div className="flex justify-end">
+                <FontAwesomeIcon className="border border-white rounded-full p-1" icon={faArrowRight} />
+              </div>
               <h2 className="text-3xl font-extrabold pb-4">{crypto.pair}</h2>
               <h1 className="text-xl semi-extrabold">
                 Exchange:&nbsp;

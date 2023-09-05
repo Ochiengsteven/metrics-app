@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component renders correctly 1`] = `
+<div>
+  <div
+    class="test-class"
+  >
+    <h1
+      class="text-5xl font-extrabold w-full pb-4"
+    >
+      CryptoView
+    </h1>
+    <h3
+      class="text-3xl font-semibold w-full back3"
+    >
+      Research the 
+      <br />
+      crypto
+      <br />
+      market
+    </h3>
+    <input
+      class="border rounded p-2 text-black focus:outline-none mt-2 w-5/6"
+      placeholder="Search by pair..."
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Header Component renders error state 1`] = `
+<div>
+  <div
+    class="test-class"
+  >
+    <h1
+      class="text-5xl font-extrabold w-full pb-4"
+    >
+      CryptoView
+    </h1>
+    <h3
+      class="text-3xl font-semibold w-full back3"
+    >
+      Research the 
+      <br />
+      crypto
+      <br />
+      market
+    </h3>
+    <input
+      class="border rounded p-2 text-black focus:outline-none mt-2 w-5/6"
+      placeholder="Search by pair..."
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Header Component renders loading state 1`] = `
+<div>
+  <div
+    class="test-class"
+  >
+    <h1
+      class="text-5xl font-extrabold w-full pb-4"
+    >
+      CryptoView
+    </h1>
+    <h3
+      class="text-3xl font-semibold w-full back3"
+    >
+      Research the 
+      <br />
+      crypto
+      <br />
+      market
+    </h3>
+    <input
+      class="border rounded p-2 text-black focus:outline-none mt-2 w-5/6"
+      placeholder="Search by pair..."
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

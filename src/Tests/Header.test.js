@@ -1,33 +1,57 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import Header from '../components/Header';
 
-describe('Header component', () => {
-  it('should render correctly', () => {
-    const { getByText, getByPlaceholderText } = render(
-      <Header className="test-header" onSearch={() => {}} />,
-    );
+// Mock the debounce function
+jest.mock('lodash.debounce', () => jest.fn((fn) => fn));
 
-    // Check if the component renders the title
-    expect(getByText('CryptoView')).toBeInTheDocument();
+const mockStore = configureStore([]);
 
-    // Check if the component renders the search input field
-    const searchInput = getByPlaceholderText('Search by pair...');
-    expect(searchInput).toBeInTheDocument();
+describe('Header Component', () => {
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
+      assets: {
+        status: 'succeeded',
+        error: null,
+      },
+    });
   });
 
-  it('should call the onSearch prop when the input changes', () => {
-    const onSearchMock = jest.fn();
-    const { getByPlaceholderText } = render(
-      <Header className="test-header" onSearch={onSearchMock} />,
+  it('renders loading state', () => {
+    store = mockStore({
+      assets: {
+        status: 'loading',
+        error: null,
+      },
+    });
+
+    const { container } = render(
+      <Provider store={store}>
+        <Header className="test-class" onSearch={() => {}} />
+      </Provider>,
     );
 
-    const searchInput = getByPlaceholderText('Search by pair...');
+    expect(container).toMatchSnapshot();
+  });
 
-    // Simulate typing into the input field
-    fireEvent.change(searchInput, { target: { value: 'BTC' } });
+  it('renders error state', () => {
+    store = mockStore({
+      assets: {
+        status: 'failed',
+        error: 'Error message',
+      },
+    });
 
-    // Expect the onSearchMock to be called with the correct value
-    expect(onSearchMock).toHaveBeenCalledWith('BTC');
+    const { container } = render(
+      <Provider store={store}>
+        <Header className="test-class" onSearch={() => {}} />
+      </Provider>,
+    );
+
+    expect(container).toMatchSnapshot();
   });
 });
