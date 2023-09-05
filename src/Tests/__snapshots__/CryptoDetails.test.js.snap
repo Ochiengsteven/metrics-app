@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CryptoDetails renders additional element when the component is rendered 1`] = `
+<div
+  data-testid="additional-element"
+>
+  Additional Element
+</div>
+`;
