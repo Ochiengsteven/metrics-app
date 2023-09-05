@@ -101,7 +101,7 @@ export default function Home() {
 
   return (
     <div className="grid grid-cols-2">
-      <Header className="col-span-2 background-image" onSearch={filterCryptoData} />
+      <Header className="col-span-2 background-image height" onSearch={filterCryptoData} />
       {content}
     </div>
   );
