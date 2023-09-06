@@ -72,6 +72,11 @@
 - ![DEMO](https://github.com/Ochiengsteven/metrics-app/blob/dev/src/components/assets/images/demo.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👁 Walkthrough
+
+This is the [Video](https://www.loom.com/share/5c93582556234a94a153c825c5d91f78?sid=4b15cc68-3d06-4026-84e6-dca7cd792b68) walk through the project.
+
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
