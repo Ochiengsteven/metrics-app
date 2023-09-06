@@ -195,6 +195,7 @@ If you like this project, create a pull request or hit me up on [Twitter](https:
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 - I thank Microverse Reviewers for reviewing my pull requests.
+- Credits to [ Nelson Sakwa on Behance ](https://www.behance.net/sakwadesignstudio) for the design inspiration
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
