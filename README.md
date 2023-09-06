@@ -69,6 +69,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - You can find the website [here](https://ochiengsteven.github.io/leader-board/)
+- ![DEMO](https://github.com/Ochiengsteven/metrics-app/blob/dev/src/components/assets/images/demo.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
