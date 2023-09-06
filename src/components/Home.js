@@ -2,10 +2,13 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { fetchAssets, selectAllAssets, selectAssetsStatus } from '../redux/actions/actionsSlice';
 import Header from './Header';
+import './assets/css/load.css';
 
-function Home() {
+export default function Home() {
   const dispatch = useDispatch();
   const cryptoData = useSelector(selectAllAssets);
   const assetsStatus = useSelector(selectAssetsStatus);
@@ -23,12 +26,10 @@ function Home() {
     }
   }, [assetsStatus, dispatch]);
 
-  // Function to handle "View More" button click
   const handleViewMoreClick = () => {
     setDisplayCount(displayCount + increment);
   };
 
-  // Function to filter crypto cards based on search query
   const filterCryptoData = useCallback(
     (query) => {
       // eslint-disable-next-line max-len
@@ -39,53 +40,75 @@ function Home() {
     [cryptoData],
   );
 
+  let content;
+  if (assetsStatus === 'loading') {
+    // Loading animation
+    content = (
+      <div className="honeycomb">
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    );
+  } else if (assetsStatus === 'succeeded') {
+    content = (
+      <React.Fragment key="crypto-content">
+        {filteredCryptoData.slice(0, displayCount).map((crypto, index) => {
+          const row = Math.floor(index / 2); // Calculate the row index
+          const col = index % 2; // Calculate the column index
+
+          // Background color based on row and column
+          const backgroundColor = (row % 2 === 0 && col === 0) || (row % 2 !== 0 && col !== 0)
+            ? '#202123'
+            : '#444654';
+
+          const uniqueKey = uuidv4();
+
+          return (
+            <Link
+              to={`/crypto/${crypto.id}`} // Unique identifier as the path
+              className="crypto-card p-3"
+              key={uniqueKey} // Unique identifier as the key
+              style={{
+                border: 'none',
+                color: 'white',
+                height: '30vh',
+                backgroundColor,
+              }}
+            >
+              <div className="flex justify-end">
+                <FontAwesomeIcon className="border border-white rounded-full p-1" icon={faArrowRight} />
+              </div>
+              <h2 className="text-3xl font-extrabold pb-4">{crypto.pair}</h2>
+              <h1 className="text-xl semi-extrabold">
+                Exchange:&nbsp;
+                <br />
+                {crypto.exchange}
+              </h1>
+            </Link>
+          );
+        })}
+        {displayCount < filteredCryptoData.length && (
+          <button
+            type="button"
+            onClick={handleViewMoreClick}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 col-span-2"
+          >
+            View More
+          </button>
+        )}
+      </React.Fragment>
+    );
+  }
+
   return (
     <div className="grid grid-cols-2">
-      <Header
-        className="col-span-2 background-image"
-        onSearch={filterCryptoData}
-      />
-      {filteredCryptoData.slice(0, displayCount).map((crypto, index) => {
-        const row = Math.floor(index / 2); // Calculate the row index
-        const col = index % 2; // Calculate the column index
-
-        // Determine the background color based on row and column
-        const backgroundColor = (row % 2 === 0 && col === 0) || (row % 2 !== 0 && col !== 0)
-          ? '#202123'
-          : '#444654';
-
-        return (
-          <Link
-            to={`/crypto/${uuidv4()}`}
-            className="crypto-card p-3"
-            key={uuidv4()}
-            style={{
-              border: 'none',
-              color: 'white',
-              height: '30vh',
-              backgroundColor,
-            }}
-          >
-            <h2 className="text-3xl font-extrabold pb-4">{crypto.pair}</h2>
-            <h1 className="text-xl semi-extrabold">
-              Exchange:&nbsp;
-              <br />
-              {crypto.exchange}
-            </h1>
-          </Link>
-        );
-      })}
-      {displayCount < filteredCryptoData.length && (
-        <button
-          type="button"
-          onClick={handleViewMoreClick}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 col-span-2"
-        >
-          View More
-        </button>
-      )}
+      <Header className="col-span-2 background-image height" onSearch={filterCryptoData} />
+      {content}
     </div>
   );
 }
-
-export default Home;

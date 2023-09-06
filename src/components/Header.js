@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import debounce from 'lodash.debounce';
 import './assets/css/header.css';
 
 export default function Header({ className, onSearch }) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Create a debounced search function to delay the filtering
+  // Debounced search function to delay the filtering
   const debouncedSearch = debounce((query) => {
     onSearch(query);
   }, 300);
