@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/metrics-app/static/css/main.c38a8b2a.css",
+    "main.js": "/metrics-app/static/js/main.c912cf34.js",
+    "static/media/bg-details.png": "/metrics-app/static/media/bg-details.2877ede8e0d20d9d261b.png",
+    "static/media/bg-header.jpg": "/metrics-app/static/media/bg-header.c589119b57ed681597ca.jpg",
+    "index.html": "/metrics-app/index.html",
+    "main.c38a8b2a.css.map": "/metrics-app/static/css/main.c38a8b2a.css.map",
+    "main.c912cf34.js.map": "/metrics-app/static/js/main.c912cf34.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c38a8b2a.css",
+    "static/js/main.c912cf34.js"
+  ]
+}
