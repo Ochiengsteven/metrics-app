@@ -68,7 +68,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- You can find the website [here](https://ochiengsteven.github.io/metrics-app/)
+- You can find the website [here](https://spontaneous-sprite-40f69d.netlify.app/)
 - ![DEMO](https://github.com/Ochiengsteven/metrics-app/blob/dev/src/components/assets/images/demo.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
