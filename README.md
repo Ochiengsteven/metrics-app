@@ -75,7 +75,7 @@
 
 ## 👁 Walkthrough
 
-This is the [Video](https://www.loom.com/share/5c93582556234a94a153c825c5d91f78?sid=4b15cc68-3d06-4026-84e6-dca7cd792b68) walk through the project.
+This is the [Video](https://www.loom.com/share/2634314f73ca4cff81c7d51781e42551?sid=3b660ee8-af26-428a-b23c-e5d22936561e) walk through the project.
 
 <!-- GETTING STARTED -->
 
