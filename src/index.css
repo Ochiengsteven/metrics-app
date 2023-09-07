@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: ease-in-out 0.5s;
+}
+
+body {
+  background: #000;
+  transition: ease-in-out 0.8s;
+}
