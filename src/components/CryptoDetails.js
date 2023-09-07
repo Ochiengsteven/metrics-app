@@ -7,18 +7,20 @@ import { selectAllAssets } from '../redux/actions/actionsSlice';
 import './assets/css/details.css';
 
 function CryptoDetails() {
-  const { uuid } = useParams();
+  const { pair, exchange } = useParams();
   const cryptoData = useSelector(selectAllAssets);
+  const decodedPair = decodeURIComponent(pair);
 
-  const crypto = cryptoData.find((crypto) => crypto.uuid === uuid);
+  // eslint-disable-next-line max-len
+  const crypto = cryptoData.find((crypto) => crypto.pair === decodedPair && crypto.exchange === exchange);
 
   return (
     <div className="min-h-screen" style={{ width: '100vw', background: '#202123' }}>
       {crypto && (
-        <div className="bg-black shadow-lg">
+        <div className="bg-black shadow-lg" style={{ height: '10vw' }}>
           <div className="details-bg">
             <Link to="/" className="text-white text-xl font-semibold flex justify-between showbg">
-              <FontAwesomeIcon icon={faAngleLeft} />
+              <FontAwesomeIcon className="text-2xl font-bold" icon={faAngleLeft} />
               <p className="inline-block ml-2">Details</p>
               <div className="inline-block ml-2 pr-3">
                 <FontAwesomeIcon className="pr-3" icon={faMicrophone} />

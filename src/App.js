@@ -8,7 +8,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/crypto/:cryptoId" element={<CryptoDetails />} />
+        <Route path="/crypto/:pair/:exchange" element={<CryptoDetails />} />
       </Routes>
     </>
   );
