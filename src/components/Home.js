@@ -70,7 +70,7 @@ export default function Home() {
 
           return (
             <Link
-              to={`/crypto/${crypto.id}`} // Unique identifier as the path
+              to={`/crypto/${uniqueKey}`} // Unique identifier as the path
               className="crypto-card p-3"
               key={uniqueKey} // Unique identifier as the key
               style={{
